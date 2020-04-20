@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class TodoInput extends Component {
     render() {
-        const { item, handleChange, handleSubmit } = this.props
+        const { item, handleChange, handleSubmit, editItem } = this.props
         // console.log({item, handleChange, handleSubmit});
         return (
             <div className="card card-body my-3">
@@ -23,9 +23,13 @@ class TodoInput extends Component {
                 </div>
                 <button 
                     type="submit" 
-                    className="btn btn-block btn-primary mt-3"
+                    className={
+                        editItem
+                        ? "btn btn-block btn-success mt-3"
+                        : "btn btn-block btn-primary mt-3"
+                    }
                 >
-                   Add Item
+                  {editItem ? 'Edit Item' : 'Add Item'}
                 </button>
             </form>
         </div>
